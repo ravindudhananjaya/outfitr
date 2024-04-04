@@ -1,9 +1,12 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:outfitr/presentation/routes/router.gr.dart';
+import 'package:nb_utils/nb_utils.dart';
+import 'package:outfitr/presentation/screens/auth/login_screen.dart';
+
 import 'package:outfitr/presentation/widgets/spaces.dart';
 import 'package:outfitr/values/values.dart';
+
+import '../sign_up_screen.dart';
 
 const socialIconColor = AppColors.white;
 const double socialBtnElevation = 0;
@@ -52,7 +55,7 @@ class Socials extends StatelessWidget {
         ),
         if (isLogin)
           InkWell(
-            onTap: () => context.router.push(const SignUpScreenRoute()),
+            onTap: () => SignUpScreen().launch(context),
             child: Padding(
               padding: const EdgeInsets.all(Sizes.PADDING_8),
               child: RichText(
@@ -76,7 +79,7 @@ class Socials extends StatelessWidget {
         else
           InkWell(
             onTap: () {
-              context.router.push(const LoginScreenRoute());
+              LoginScreen().launch(context);
             },
             child: Padding(
               padding: const EdgeInsets.all(Sizes.PADDING_8),

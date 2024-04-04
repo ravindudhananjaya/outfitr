@@ -1,8 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:outfitr/presentation/layout/adaptive.dart';
-import 'package:outfitr/presentation/routes/router.gr.dart';
+import 'package:outfitr/presentation/screens/onboarding/get_started_screen.dart';
+
 import 'package:outfitr/presentation/widgets/onboarding_item.dart';
 import 'package:outfitr/values/values.dart';
 
@@ -13,7 +14,7 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   PageController _pageController = PageController();
-  late double _currentIndexPage;
+  late int _currentIndexPage;
   late int _pageLength;
 
   @override
@@ -35,7 +36,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               controller: _pageController,
               children: _buildOnBoardingItems(Data.onBoardingItems),
               onPageChanged: (value) {
-                setState(() => _currentIndexPage = value.toDouble());
+                setState(() => _currentIndexPage = value.toInt());
               },
             ),
             Positioned(
@@ -102,9 +103,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   void _slideForward() {
     if (_currentIndexPage < _pageLength - 1) {
       setState(() {
-        _currentIndexPage += 1.toDouble();
+        _currentIndexPage += 1.toInt();
       });
-      movePageViewer(_currentIndexPage);
+      movePageViewer(_currentIndexPage.toDouble());
     }
   }
 
@@ -117,6 +118,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   }
 
   void navigateToGetStartedScreen() {
-    context.router.push(const GetStartedScreenRoute());
+    GetStartedScreen().launch(context);
   }
 }

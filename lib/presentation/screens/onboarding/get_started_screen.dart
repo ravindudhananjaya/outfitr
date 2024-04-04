@@ -1,10 +1,14 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:outfitr/presentation/layout/adaptive.dart';
-import 'package:outfitr/presentation/routes/router.gr.dart';
+import 'package:outfitr/presentation/screens/auth/login_screen.dart';
+import 'package:outfitr/presentation/screens/auth/sign_up_screen.dart';
+
 import 'package:outfitr/presentation/widgets/custom_button.dart';
 import 'package:outfitr/presentation/widgets/spaces.dart';
 import 'package:outfitr/values/values.dart';
+
+import '../auth/forgot_password_screen.dart';
 
 class GetStartedScreen extends StatelessWidget {
   @override
@@ -111,8 +115,7 @@ class GetStartedScreen extends StatelessWidget {
                                 ),
                                 color: AppColors.primaryColor,
                                 elevation: Sizes.ELEVATION_0,
-                                onPressed: () => context.router
-                                    .push(const LoginScreenRoute()),
+                                onPressed: () => LoginScreen().launch(context),
                               ),
                             ),
                             SpaceH20(),
@@ -125,14 +128,13 @@ class GetStartedScreen extends StatelessWidget {
                                 ),
                                 color: AppColors.grey10,
                                 elevation: Sizes.ELEVATION_0,
-                                onPressed: () => context.router
-                                    .push(const SignUpScreenRoute()),
+                                onPressed: () => SignUpScreen().launch(context),
                               ),
                             ),
                             Spacer(),
                             InkWell(
-                              onTap: () => context.router
-                                  .push(const ForgotPasswordScreenRoute()),
+                              onTap: () =>
+                                  ForgotPasswordScreen().launch(context),
                               child: Padding(
                                 padding: const EdgeInsets.all(Sizes.PADDING_8),
                                 child: Text(

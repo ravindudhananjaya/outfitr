@@ -1,6 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:outfitr/presentation/routes/router.gr.dart';
+
 import 'package:outfitr/presentation/widgets/outfitr_item.dart';
 import 'package:outfitr/presentation/widgets/spaces.dart';
 import 'package:outfitr/values/values.dart';
@@ -14,14 +13,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    run();
-  }
-
-  void run() {
-    Future.delayed(Duration(milliseconds: 1500), () {
-      context.router.pushAndPopUntil(const OnBoardingScreenRoute(),
-          predicate: (Route<dynamic> route) => false);
-    });
   }
 
   @override

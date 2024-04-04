@@ -18,7 +18,7 @@ class AppTheme {
       canvasColor: colorScheme.background,
       scaffoldBackgroundColor: colorScheme.background,
       highlightColor: Colors.transparent,
-      accentColor: colorScheme.primary,
+      hintColor: colorScheme.primary,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       focusColor: AppColors.primaryColor,
     );
@@ -26,9 +26,7 @@ class AppTheme {
 
   static const ColorScheme lightColorScheme = ColorScheme(
     primary: AppColors.primaryColor,
-    primaryVariant: AppColors.secondaryColor,
     secondary: AppColors.accentPrimaryColor,
-    secondaryVariant: AppColors.accentPrimaryColor,
     background: Colors.white,
     surface: Color(0xFFFAFBFB),
     onBackground: AppColors.white100,

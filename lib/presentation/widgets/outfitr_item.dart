@@ -57,7 +57,7 @@ class OutfitrItem extends StatelessWidget {
         borderRadius: borderRadius,
       ),
       child: ClipRRect(
-        borderRadius: borderRadius,
+        borderRadius: borderRadius ?? AppRadius.fullCircleRadius,
         child: Image.asset(
           imagePath,
           width: itemSize,
